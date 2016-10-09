@@ -37,6 +37,18 @@ app.get('/:action', function (req, res)
           }
         }); 
     }
+    else if(action== "poster_tiny")
+    {
+      fs.readFile('posters/tiny/'+ req.query.movieid + '.jpg', function(err, contents) {
+
+          if (err) console.log(err);
+          else 
+            {              
+              res.write(contents);
+              res.end();
+          }
+        }); 
+    }
     else
     {
     	 res.end("unknown request" );
